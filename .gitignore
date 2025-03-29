@@ -1,0 +1,51 @@
+# PHP specific
+/vendor
+/.idea
+/.vscode
+/.vagrant
+composer.phar
+*.php~
+.phpunit.result.cache
+
+# Environment files
+.env
+.env.local
+.env.*.local
+.env.backup
+
+# IDE specific
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+.project
+.settings/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Logs and databases
+*.log
+*.sql
+*.sqlite
+
+# Cache and session files
+/cache/
+/sessions/
+*.cache
+
+# Build files
+/build/
+/dist/
+/node_modules/
+
+# Test coverage
+/coverage/
+.phpunit.cache/
+/database/database.sqlite
