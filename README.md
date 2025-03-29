@@ -26,13 +26,21 @@ A command-line tool for importing CSV files into different database backends.
 cd csv-importer
 ```
 
-2. Install dependencies
+2. Install & enable MongoDB PHP Extension
+```bash
+pecl install mongodb
+```
+Then edit php.ini to add the following line
+```ini
+extension=mongodb.so
+```
+
+3. Install dependencies
 ```bash
 composer install
 ```
 
-3. Configure the database connection and other config in the .env file
-
+4. Configure the database connection and other config in the .env file
 ```bash
 # One of postgres, mongodb, sqlite
 # More drives can be configured as needed in config/database.php file
@@ -66,8 +74,7 @@ LOG_LEVEL_STDERR=warning
 LOG_LEVEL_SINGLE=debug
 ```
 
-4. Run the migrations
-
+5. Run the migrations
 ```bash
 php csv-importer migrate
 ```
@@ -99,6 +106,15 @@ The app is built following best practices with principles like Single Responsibi
 6. In `App\Commands\ImportCsvCommand`, add the new model table name to the `$tables` array. Example: `'users'`
 
 ## Supporting MongoDB
+
+First you need to install mongodb extension for php:
+
+```bash
+pecl install mongodb
+```
+
+Then enable the extension by adding `extension=mongodb.so` to `php.ini`.
+
 MongoDD PHP Driver is already included in the dependencies, however, model defintions need to extend MongoDB models instead of Eloquent Models. 
 
 Simply edit `App\Models\BaseModel` to extend `MongoDB\Laravel\Eloquent\Model` instead.
